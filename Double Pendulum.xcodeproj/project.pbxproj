@@ -15,6 +15,8 @@
 		5DE20ED515E708B40071D607 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20ED415E708B40071D607 /* FCAppDelegate.m */; };
 		5DE20ED815E708B40071D607 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */; };
 		5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EDA15E708B40071D607 /* FCViewController.m */; };
+		5DE20EE215E70E450071D607 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EE115E70E450071D607 /* QuartzCore.framework */; };
+		5DE20EE515E721280071D607 /* FCBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EE415E721280071D607 /* FCBarLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		5DE20ED715E708B40071D607 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5DE20ED915E708B40071D607 /* FCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCViewController.h; sourceTree = "<group>"; };
 		5DE20EDA15E708B40071D607 /* FCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCViewController.m; sourceTree = "<group>"; };
+		5DE20EE115E70E450071D607 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5DE20EE315E721280071D607 /* FCBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBarLayer.h; sourceTree = "<group>"; };
+		5DE20EE415E721280071D607 /* FCBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBarLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE20EE215E70E450071D607 /* QuartzCore.framework in Frameworks */,
 				5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */,
 				5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */,
 				5DE20EC915E708B40071D607 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +73,7 @@
 		5DE20EC315E708B40071D607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DE20EE115E70E450071D607 /* QuartzCore.framework */,
 				5DE20EC415E708B40071D607 /* UIKit.framework */,
 				5DE20EC615E708B40071D607 /* Foundation.framework */,
 				5DE20EC815E708B40071D607 /* CoreGraphics.framework */,
@@ -82,6 +89,8 @@
 				5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */,
 				5DE20ED915E708B40071D607 /* FCViewController.h */,
 				5DE20EDA15E708B40071D607 /* FCViewController.m */,
+				5DE20EE315E721280071D607 /* FCBarLayer.h */,
+				5DE20EE415E721280071D607 /* FCBarLayer.m */,
 				5DE20ECB15E708B40071D607 /* Supporting Files */,
 			);
 			path = "Double Pendulum";
@@ -165,6 +174,7 @@
 				5DE20ED115E708B40071D607 /* main.m in Sources */,
 				5DE20ED515E708B40071D607 /* FCAppDelegate.m in Sources */,
 				5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */,
+				5DE20EE515E721280071D607 /* FCBarLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

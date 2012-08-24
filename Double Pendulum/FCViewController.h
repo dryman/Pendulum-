@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCBarLayer.h"
 
 @interface FCViewController : UIViewController
+@property (nonatomic,strong) FCBarLayer *bar1;
+@property (nonatomic,strong) CALayer *layer;
+@property (nonatomic,strong) CADisplayLink *displayLink;
+@property (nonatomic,assign) CGFloat theta;
 
+-(void)moveLayer;
 @end
