@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC415E708B40071D607 /* UIKit.framework */; };
+		5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC615E708B40071D607 /* Foundation.framework */; };
+		5DE20EC915E708B40071D607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC815E708B40071D607 /* CoreGraphics.framework */; };
+		5DE20ECF15E708B40071D607 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE20ECD15E708B40071D607 /* InfoPlist.strings */; };
+		5DE20ED115E708B40071D607 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20ED015E708B40071D607 /* main.m */; };
+		5DE20ED515E708B40071D607 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20ED415E708B40071D607 /* FCAppDelegate.m */; };
+		5DE20ED815E708B40071D607 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */; };
+		5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EDA15E708B40071D607 /* FCViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5DE20EC015E708B40071D607 /* Double Pendulum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Double Pendulum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE20EC415E708B40071D607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5DE20EC615E708B40071D607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5DE20EC815E708B40071D607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5DE20ECC15E708B40071D607 /* Double Pendulum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Double Pendulum-Info.plist"; sourceTree = "<group>"; };
+		5DE20ECE15E708B40071D607 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5DE20ED015E708B40071D607 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5DE20ED215E708B40071D607 /* Double Pendulum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Double Pendulum-Prefix.pch"; sourceTree = "<group>"; };
+		5DE20ED315E708B40071D607 /* FCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAppDelegate.h; sourceTree = "<group>"; };
+		5DE20ED415E708B40071D607 /* FCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAppDelegate.m; sourceTree = "<group>"; };
+		5DE20ED715E708B40071D607 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5DE20ED915E708B40071D607 /* FCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCViewController.h; sourceTree = "<group>"; };
+		5DE20EDA15E708B40071D607 /* FCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DE20EBD15E708B40071D607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */,
+				5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */,
+				5DE20EC915E708B40071D607 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5DE20EB515E708B40071D607 = {
+			isa = PBXGroup;
+			children = (
+				5DE20ECA15E708B40071D607 /* Double Pendulum */,
+				5DE20EC315E708B40071D607 /* Frameworks */,
+				5DE20EC115E708B40071D607 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DE20EC115E708B40071D607 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DE20EC015E708B40071D607 /* Double Pendulum.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DE20EC315E708B40071D607 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DE20EC415E708B40071D607 /* UIKit.framework */,
+				5DE20EC615E708B40071D607 /* Foundation.framework */,
+				5DE20EC815E708B40071D607 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DE20ECA15E708B40071D607 /* Double Pendulum */ = {
+			isa = PBXGroup;
+			children = (
+				5DE20ED315E708B40071D607 /* FCAppDelegate.h */,
+				5DE20ED415E708B40071D607 /* FCAppDelegate.m */,
+				5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */,
+				5DE20ED915E708B40071D607 /* FCViewController.h */,
+				5DE20EDA15E708B40071D607 /* FCViewController.m */,
+				5DE20ECB15E708B40071D607 /* Supporting Files */,
+			);
+			path = "Double Pendulum";
+			sourceTree = "<group>";
+		};
+		5DE20ECB15E708B40071D607 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DE20ECC15E708B40071D607 /* Double Pendulum-Info.plist */,
+				5DE20ECD15E708B40071D607 /* InfoPlist.strings */,
+				5DE20ED015E708B40071D607 /* main.m */,
+				5DE20ED215E708B40071D607 /* Double Pendulum-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DE20EBF15E708B40071D607 /* Double Pendulum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE20EDE15E708B40071D607 /* Build configuration list for PBXNativeTarget "Double Pendulum" */;
+			buildPhases = (
+				5DE20EBC15E708B40071D607 /* Sources */,
+				5DE20EBD15E708B40071D607 /* Frameworks */,
+				5DE20EBE15E708B40071D607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Double Pendulum";
+			productName = "Double Pendulum";
+			productReference = 5DE20EC015E708B40071D607 /* Double Pendulum.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DE20EB715E708B40071D607 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FC;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Felix Chern";
+			};
+			buildConfigurationList = 5DE20EBA15E708B40071D607 /* Build configuration list for PBXProject "Double Pendulum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5DE20EB515E708B40071D607;
+			productRefGroup = 5DE20EC115E708B40071D607 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DE20EBF15E708B40071D607 /* Double Pendulum */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DE20EBE15E708B40071D607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE20ECF15E708B40071D607 /* InfoPlist.strings in Resources */,
+				5DE20ED815E708B40071D607 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DE20EBC15E708B40071D607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE20ED115E708B40071D607 /* main.m in Sources */,
+				5DE20ED515E708B40071D607 /* FCAppDelegate.m in Sources */,
+				5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5DE20ECD15E708B40071D607 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE20ECE15E708B40071D607 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE20ED715E708B40071D607 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5DE20EDC15E708B40071D607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5DE20EDD15E708B40071D607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DE20EDF15E708B40071D607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Double Pendulum/Double Pendulum-Prefix.pch";
+				INFOPLIST_FILE = "Double Pendulum/Double Pendulum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5DE20EE015E708B40071D607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Double Pendulum/Double Pendulum-Prefix.pch";
+				INFOPLIST_FILE = "Double Pendulum/Double Pendulum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DE20EBA15E708B40071D607 /* Build configuration list for PBXProject "Double Pendulum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE20EDC15E708B40071D607 /* Debug */,
+				5DE20EDD15E708B40071D607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE20EDE15E708B40071D607 /* Build configuration list for PBXNativeTarget "Double Pendulum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE20EDF15E708B40071D607 /* Debug */,
+				5DE20EE015E708B40071D607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DE20EB715E708B40071D607 /* Project object */;
+}
