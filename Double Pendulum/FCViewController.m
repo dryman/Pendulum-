@@ -8,7 +8,7 @@
 
 #import "FCViewController.h"
 
-
+static CGFloat theta;
 
 
 @interface FCViewController ()
@@ -36,12 +36,12 @@
 {
     
     CGFloat time = (CGFloat)CACurrentMediaTime();
-    _theta = M_PI_4*cosf(M_2_PI*time*5);
+    theta = M_PI_4*cosf(M_2_PI*time*5);
     //_theta+=0.1;
     
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-    self.bar1.angle = self->_theta;
+    self.bar1.angle = theta;
     [CATransaction commit];
     
 }
