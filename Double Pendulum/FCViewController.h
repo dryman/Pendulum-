@@ -15,5 +15,5 @@
 @property (nonatomic,strong) CADisplayLink *displayLink;
 
 
--(void)moveLayer;
+-(void)animateLayers;
 @end

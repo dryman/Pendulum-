@@ -42,6 +42,10 @@ static void runge_kutta_4 (float dt)
 {
     [super viewDidLoad];
     a_eff_new = 9.8;
+    current[0] = M_PI_2;
+    current[1] = M_PI_2;
+    current[2] = 10;
+    current[3] = 0.0;
     
     _bar1 = [[FCBarLayer alloc] initWithLength:70. andWidth:10.];
     _bar1.position = CGPointMake(160., 240.);
@@ -55,25 +59,28 @@ static void runge_kutta_4 (float dt)
     _bar2.borderColor = [[[UIColor redColor] colorWithAlphaComponent:0.3] CGColor];
     _bar2.borderWidth = 2;
     
-
     [self.view.layer addSublayer:self.bar1];
     [self.view.layer addSublayer:self.bar2];
-    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(moveLayer)];
+    
+    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animateLayers)];
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 
 }
 
-- (void)moveLayer
+- (void)animateLayers
 {
     
     CGFloat time = (CGFloat)CACurrentMediaTime();
     theta = M_PI_4*cosf(M_2_PI*time*5);
     //_theta+=0.1;
     
+    runge_kutta_4(0.05);
+    
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-    self.bar1.angle = theta;
+    self.bar1.angle = current[0];
     self.bar2.position = self.bar1.tailPosition;
+    self.bar2.angle = current[1];
     [CATransaction commit];
     
 }
