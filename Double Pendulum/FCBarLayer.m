@@ -25,7 +25,8 @@
 
 -(CGFloat) angle
 {
-    return [[self valueForKeyPath:@"transfrom.rotation"] floatValue];
+    CATransform3D transform = self.transform;
+    return (CGFloat)atan2(transform.m12, transform.m11);
 }
 -(void) setAngle:(CGFloat)angle
 {

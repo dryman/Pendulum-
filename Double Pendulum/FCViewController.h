@@ -11,6 +11,7 @@
 
 @interface FCViewController : UIViewController
 @property (nonatomic,strong) FCBarLayer *bar1;
+@property (nonatomic,strong) FCBarLayer *bar2;
 @property (nonatomic,strong) CADisplayLink *displayLink;
 
 

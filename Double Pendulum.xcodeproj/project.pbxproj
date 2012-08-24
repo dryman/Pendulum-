@@ -17,6 +17,7 @@
 		5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EDA15E708B40071D607 /* FCViewController.m */; };
 		5DE20EE215E70E450071D607 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EE115E70E450071D607 /* QuartzCore.framework */; };
 		5DE20EE515E721280071D607 /* FCBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EE415E721280071D607 /* FCBarLayer.m */; };
+		5DE20EE715E740440071D607 /* odeFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 5DE20EE615E740440071D607 /* odeFunction.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		5DE20EE115E70E450071D607 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5DE20EE315E721280071D607 /* FCBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBarLayer.h; sourceTree = "<group>"; };
 		5DE20EE415E721280071D607 /* FCBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBarLayer.m; sourceTree = "<group>"; };
+		5DE20EE615E740440071D607 /* odeFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = odeFunction.c; sourceTree = "<group>"; };
+		5DE20EE815E7486E0071D607 /* odeFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = odeFunction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */,
 				5DE20ED915E708B40071D607 /* FCViewController.h */,
 				5DE20EDA15E708B40071D607 /* FCViewController.m */,
+				5DE20EE815E7486E0071D607 /* odeFunction.h */,
+				5DE20EE615E740440071D607 /* odeFunction.c */,
 				5DE20EE315E721280071D607 /* FCBarLayer.h */,
 				5DE20EE415E721280071D607 /* FCBarLayer.m */,
 				5DE20ECB15E708B40071D607 /* Supporting Files */,
@@ -175,6 +180,7 @@
 				5DE20ED515E708B40071D607 /* FCAppDelegate.m in Sources */,
 				5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */,
 				5DE20EE515E721280071D607 /* FCBarLayer.m in Sources */,
+				5DE20EE715E740440071D607 /* odeFunction.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
