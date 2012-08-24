@@ -20,12 +20,12 @@
  *
  */
 
-void odeFunction (float *desc, float *src, float alpha, float a_eff, float phi)
+void odeFunction (float *desc, float *src, float *srcFactor, float alpha, float a_eff, float phi)
 {
-    float t1   = src[0]*alpha,
-          t2   = src[1]*alpha,
-          t1_t = src[2]*alpha,
-          t2_t = src[3]*alpha;
+    float t1   = src[0] + srcFactor[0]*alpha,
+          t2   = src[1] + srcFactor[1]*alpha,
+          t1_t = src[2] + srcFactor[2]*alpha,
+          t2_t = src[3] + srcFactor[3]*alpha;
 
     float delta, dt;
     

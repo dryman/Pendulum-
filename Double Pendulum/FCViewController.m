@@ -22,10 +22,10 @@ static float a_eff_new;
 static void runge_kutta_4 (float dt)
 {
     a_eff_old = a_eff_new;
-    odeFunction(k1, current, 1., a_eff_old, 0.);
-    odeFunction(k2, k1, dt/2., 0.5*(a_eff_old+a_eff_new), 0.);
-    odeFunction(k3, k2, dt/2., 0.5*(a_eff_old+a_eff_new), 0.);
-    odeFunction(k4, k3, dt, a_eff_new, 0.);
+    odeFunction(k1, current, current, 0., a_eff_old, 0.);
+    odeFunction(k2, current, k1, dt/2., 0.5*(a_eff_old+a_eff_new), 0.);
+    odeFunction(k3, current, k2, dt/2., 0.5*(a_eff_old+a_eff_new), 0.);
+    odeFunction(k4, current, k3, dt, a_eff_new, 0.);
 
     for (int i=0; i<4; ++i) {
         current[i] = current[i] + dt/6.*(k1[i] + 2.*k2[i] + 2.*k3[i] + k4[i]);
@@ -41,11 +41,11 @@ static void runge_kutta_4 (float dt)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    a_eff_new = 9.8;
-    current[0] = M_PI_2;
-    current[1] = M_PI_2;
-    current[2] = 10;
-    current[3] = 0.0;
+    a_eff_new = 4.5;
+    current[0] = M_PI;
+    current[1] = M_PI;
+    current[2] = 1;
+    current[3] = 3.0;
     
     _bar1 = [[FCBarLayer alloc] initWithLength:70. andWidth:10.];
     _bar1.position = CGPointMake(160., 240.);
