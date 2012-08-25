@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "FCBarLayer.h"
 
+@class CMMotionManager;
+
 @interface FCViewController : UIViewController
 @property (nonatomic,strong) FCBarLayer *bar1;
 @property (nonatomic,strong) FCBarLayer *bar2;
+@property (nonatomic,strong) CALayer *tailLayer;
 @property (nonatomic,strong) CADisplayLink *displayLink;
-
+@property (nonatomic,strong,readonly) CMMotionManager *sharedManager;
 
 -(void)animateLayers;
 @end

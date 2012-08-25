@@ -20,7 +20,7 @@
  *
  */
 
-void odeFunction (float *desc, float *src, float *srcFactor, float alpha, float a_eff, float phi)
+void odeFunction (float *desc, float *src, float *srcFactor, float alpha, float a_eff, float phi, float damp_coef)
 {
     float t1   = src[0] + srcFactor[0]*alpha,
           t2   = src[1] + srcFactor[1]*alpha,
@@ -38,10 +38,12 @@ void odeFunction (float *desc, float *src, float *srcFactor, float alpha, float 
     desc[2] = 1./delta * (1./6. *t2_t*t2_t*sinf(dt)
                             - .5  *a_eff*sinf(t1-phi)
                             + .25 *t1_t*t1_t*sinf(dt)*cosf(dt)
-                            + .25 *a_eff*sinf(t2-phi)*cosf(dt));
+                            + .25 *a_eff*sinf(t2-phi)*cosf(dt))
+              - damp_coef * t1_t;
     
     desc[3] = 1./delta * (-0.25 *t2_t*t2_t*sinf(dt)*cosf(dt)
                             +0.75 *a_eff*sin(t1-phi)*cosf(dt)
                             -2./3.*t1_t*t1_t*sinf(dt)
-                            -2./3.*a_eff*sinf(t2-phi));
+                            -2./3.*a_eff*sinf(t2-phi))
+              - damp_coef * t2_t;
 }

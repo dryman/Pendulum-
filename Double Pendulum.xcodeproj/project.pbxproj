@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D7CF10115E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */; };
+		5D7CF10315E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */; };
+		5DC9491815E77441002CED6A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC9491715E77441002CED6A /* CoreMotion.framework */; };
 		5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC415E708B40071D607 /* UIKit.framework */; };
 		5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC615E708B40071D607 /* Foundation.framework */; };
 		5DE20EC915E708B40071D607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC815E708B40071D607 /* CoreGraphics.framework */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-gear-10-icon.png"; sourceTree = "<group>"; };
+		5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-stop-2-icon.png"; sourceTree = "<group>"; };
+		5DC9491715E77441002CED6A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5DE20EC015E708B40071D607 /* Double Pendulum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Double Pendulum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE20EC415E708B40071D607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DE20EC615E708B40071D607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC9491815E77441002CED6A /* CoreMotion.framework in Frameworks */,
 				5DE20EE215E70E450071D607 /* QuartzCore.framework in Frameworks */,
 				5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */,
 				5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */,
@@ -76,6 +83,7 @@
 		5DE20EC315E708B40071D607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DC9491715E77441002CED6A /* CoreMotion.framework */,
 				5DE20EE115E70E450071D607 /* QuartzCore.framework */,
 				5DE20EC415E708B40071D607 /* UIKit.framework */,
 				5DE20EC615E708B40071D607 /* Foundation.framework */,
@@ -104,6 +112,8 @@
 		5DE20ECB15E708B40071D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */,
+				5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */,
 				5DE20ECC15E708B40071D607 /* Double Pendulum-Info.plist */,
 				5DE20ECD15E708B40071D607 /* InfoPlist.strings */,
 				5DE20ED015E708B40071D607 /* main.m */,
@@ -166,6 +176,8 @@
 			files = (
 				5DE20ECF15E708B40071D607 /* InfoPlist.strings in Resources */,
 				5DE20ED815E708B40071D607 /* MainStoryboard.storyboard in Resources */,
+				5D7CF10115E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png in Resources */,
+				5D7CF10315E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +308,7 @@
 				5DE20EE015E708B40071D607 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

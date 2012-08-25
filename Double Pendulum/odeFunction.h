@@ -10,6 +10,6 @@
 #define Double_Pendulum_odeFunction_h
 
 #include <math.h>
-void odeFunction (float *desc, float *src, float* srcFactor, float alpha, float a_eff, float phi);
+void odeFunction (float *desc, float *src, float* srcFactor, float alpha, float a_eff, float phi, float damp_coef);
 
 #endif

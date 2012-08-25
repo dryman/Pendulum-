@@ -9,10 +9,20 @@
 #import "FCAppDelegate.h"
 
 @implementation FCAppDelegate
+@synthesize sharedManager = __sharedManager;
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //[application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    __sharedManager = [[CMMotionManager alloc] init];
+    if ([self.sharedManager isAccelerometerAvailable]) {
+        self.sharedManager.accelerometerUpdateInterval = 1.0/60.0;
+        [self.sharedManager startAccelerometerUpdates];
+    }
     return YES;
 }
 							
