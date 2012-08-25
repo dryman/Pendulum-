@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5D7CF10115E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */; };
 		5D7CF10315E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */; };
+		5D7CF10515E8941700DE3B04 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10415E8941700DE3B04 /* gear.png */; };
+		5D7CF10715E89C1700DE3B04 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7CF10615E89C1700DE3B04 /* CoreImage.framework */; };
+		5D7CF10915E8A40200DE3B04 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10815E8A40200DE3B04 /* gear@2x.png */; };
 		5DC9491815E77441002CED6A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC9491715E77441002CED6A /* CoreMotion.framework */; };
 		5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC415E708B40071D607 /* UIKit.framework */; };
 		5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC615E708B40071D607 /* Foundation.framework */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-gear-10-icon.png"; sourceTree = "<group>"; };
 		5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-stop-2-icon.png"; sourceTree = "<group>"; };
+		5D7CF10415E8941700DE3B04 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		5D7CF10615E89C1700DE3B04 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		5D7CF10815E8A40200DE3B04 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
 		5DC9491715E77441002CED6A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5DE20EC015E708B40071D607 /* Double Pendulum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Double Pendulum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE20EC415E708B40071D607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7CF10715E89C1700DE3B04 /* CoreImage.framework in Frameworks */,
 				5DC9491815E77441002CED6A /* CoreMotion.framework in Frameworks */,
 				5DE20EE215E70E450071D607 /* QuartzCore.framework in Frameworks */,
 				5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */,
@@ -83,6 +90,7 @@
 		5DE20EC315E708B40071D607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D7CF10615E89C1700DE3B04 /* CoreImage.framework */,
 				5DC9491715E77441002CED6A /* CoreMotion.framework */,
 				5DE20EE115E70E450071D607 /* QuartzCore.framework */,
 				5DE20EC415E708B40071D607 /* UIKit.framework */,
@@ -112,6 +120,8 @@
 		5DE20ECB15E708B40071D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D7CF10415E8941700DE3B04 /* gear.png */,
+				5D7CF10815E8A40200DE3B04 /* gear@2x.png */,
 				5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */,
 				5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */,
 				5DE20ECC15E708B40071D607 /* Double Pendulum-Info.plist */,
@@ -178,6 +188,8 @@
 				5DE20ED815E708B40071D607 /* MainStoryboard.storyboard in Resources */,
 				5D7CF10115E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png in Resources */,
 				5D7CF10315E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png in Resources */,
+				5D7CF10515E8941700DE3B04 /* gear.png in Resources */,
+				5D7CF10915E8A40200DE3B04 /* gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

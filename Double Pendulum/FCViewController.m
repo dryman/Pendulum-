@@ -45,11 +45,20 @@ static void runge_kutta_4 (float dt, float phi)
 @end
 
 @implementation FCViewController
+@synthesize prefButton = _prefButton;
 @synthesize sharedManager = __sharedManager;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIColor *highlightColor = [[UIColor greenColor] colorWithAlphaComponent:.6];
+    [self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
+    [self setPrefButtonWithColor:highlightColor forState:UIControlStateHighlighted];
+
+    //[self setPrefButtonWithColor:highlightColor forState:UIControlStateSelected];
+    self.prefButton.layer.cornerRadius = 10.;
+    self.prefButton.layer.borderColor = highlightColor.CGColor;
+    self.view.backgroundColor = [UIColor blackColor];
 
     current[0] = 0.;
     current[1] = 0.;
@@ -79,7 +88,13 @@ static void runge_kutta_4 (float dt, float phi)
     
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animateLayers)];
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+}
 
+- (void)viewDidUnload
+{
+    [self setPrefButton:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
 }
 
 - (void)animateLayers
@@ -105,22 +120,50 @@ static void runge_kutta_4 (float dt, float phi)
     
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)setPrefButtonWithColor:(UIColor*)color forState:(UIControlState)state
+{
+    UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
+    CGRect rect = CGRectMake(0, 0, gearImage.size.width, gearImage.size.height);
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    
+    UIGraphicsBeginImageContextWithOptions(gearImage.size, NO, scale);
+    CGContextRef context = UIGraphicsGetCurrentContext(); /* image context */
+    [color setFill];
+    CGContextClipToMask(context, rect, gearImage.CGImage);
+    CGContextAddRect(context, rect);
+    CGContextDrawPath(context, kCGPathFill);
+    UIImage *coloredImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.prefButton setImage:coloredImg forState:state];
+}
+
+
 -(CMMotionManager*)sharedManager {
     if (__sharedManager==nil) {
         __sharedManager = [(FCAppDelegate*)UIApplication.sharedApplication.delegate sharedManager];
     }
     return __sharedManager;
+}
+
+- (IBAction)prefTouchDown:(id)sender {
+    self.prefButton.layer.borderWidth = 3.;
+}
+
+- (IBAction)prefTouchUpInside:(id)sender {
+    self.prefButton.layer.borderWidth = 0;
+}
+
+- (IBAction)prefTouchUpOutside:(id)sender {
+    self.prefButton.layer.borderWidth = 0;
+
 }
 
 @end

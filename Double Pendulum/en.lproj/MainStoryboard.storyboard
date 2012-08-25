@@ -14,11 +14,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iut-zj-Oer">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iut-zj-Oer">
                                 <rect key="frame" x="248" y="20" width="52" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" image="iconmonstr-gear-10-icon.png">
+                                <state key="normal" image="gear.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
@@ -26,6 +26,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="prefTouchDown:" destination="2" eventType="touchDragInside" id="fQ4-um-4jy"/>
+                                    <action selector="prefTouchDown:" destination="2" eventType="touchDown" id="kXC-GQ-JXJ"/>
+                                    <action selector="prefTouchUpInside:" destination="2" eventType="touchUpInside" id="RVn-xd-jte"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="valueChanged" id="30B-e0-TKN"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchDragOutside" id="BIC-6S-jKZ"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchDragExit" id="KlA-Qn-nzG"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchUpOutside" id="Nue-HO-7SS"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="editingDidEndOnExit" id="geh-fo-mHj"/>
+                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchCancel" id="iyq-Lk-61s"/>
                                     <segue destination="Mox-sZ-k3a" kind="modal" id="gXN-uJ-6I4"/>
                                 </connections>
                             </button>
@@ -35,6 +44,9 @@
                     <navigationItem key="navigationItem" id="nER-gK-e9W"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="prefButton" destination="Iut-zj-Oer" id="9nu-pZ-ne2"/>
+                    </connections>
                 </viewController>
             </objects>
         </scene>
@@ -75,9 +87,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="2" kind="modal" id="qWn-9M-Jed"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -90,11 +99,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconmonstr-gear-10-icon.png" width="512" height="512"/>
+        <image name="gear.png" width="52" height="52"/>
     </resources>
     <classes>
         <class className="FCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="prefTouchDown:"/>
+                <relationship kind="action" name="prefTouchUpInside:"/>
+                <relationship kind="action" name="prefTouchUpOutside:"/>
+                <relationship kind="outlet" name="prefButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
