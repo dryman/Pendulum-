@@ -18,6 +18,8 @@
 {
     // Override point for customization after application launch.
     //[application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+
     __sharedManager = [[CMMotionManager alloc] init];
     if ([self.sharedManager isAccelerometerAvailable]) {
         self.sharedManager.accelerometerUpdateInterval = 1.0/60.0;

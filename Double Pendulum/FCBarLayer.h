@@ -14,6 +14,7 @@
 @property (nonatomic,assign,readwrite) CGFloat angle;
 @property (nonatomic,assign,readonly)  CGPoint tailPosition;
 
+-(void) setLength:(CGFloat)length andWidth:(CGFloat)width;
 -(FCBarLayer*) initWithLength:(CGFloat)length andWidth:(CGFloat)width;
 
 @end

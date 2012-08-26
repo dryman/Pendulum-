@@ -12,6 +12,8 @@
 		5D7CF10515E8941700DE3B04 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10415E8941700DE3B04 /* gear.png */; };
 		5D7CF10715E89C1700DE3B04 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7CF10615E89C1700DE3B04 /* CoreImage.framework */; };
 		5D7CF10915E8A40200DE3B04 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10815E8A40200DE3B04 /* gear@2x.png */; };
+		5D7CF10C15E8DFBF00DE3B04 /* FCPendulum.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CF10B15E8DFBF00DE3B04 /* FCPendulum.m */; };
+		5D9E9BE215EA4C01002AE4F9 /* FCPreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E9BE115EA4C01002AE4F9 /* FCPreferenceController.m */; };
 		5DC9491815E77441002CED6A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC9491715E77441002CED6A /* CoreMotion.framework */; };
 		5DE20EC515E708B40071D607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC415E708B40071D607 /* UIKit.framework */; };
 		5DE20EC715E708B40071D607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE20EC615E708B40071D607 /* Foundation.framework */; };
@@ -32,6 +34,10 @@
 		5D7CF10415E8941700DE3B04 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		5D7CF10615E89C1700DE3B04 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5D7CF10815E8A40200DE3B04 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		5D7CF10A15E8DFBF00DE3B04 /* FCPendulum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCPendulum.h; sourceTree = "<group>"; };
+		5D7CF10B15E8DFBF00DE3B04 /* FCPendulum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCPendulum.m; sourceTree = "<group>"; };
+		5D9E9BE015EA4C01002AE4F9 /* FCPreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCPreferenceController.h; sourceTree = "<group>"; };
+		5D9E9BE115EA4C01002AE4F9 /* FCPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCPreferenceController.m; sourceTree = "<group>"; };
 		5DC9491715E77441002CED6A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5DE20EC015E708B40071D607 /* Double Pendulum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Double Pendulum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE20EC415E708B40071D607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -106,8 +112,12 @@
 				5DE20ED315E708B40071D607 /* FCAppDelegate.h */,
 				5DE20ED415E708B40071D607 /* FCAppDelegate.m */,
 				5DE20ED615E708B40071D607 /* MainStoryboard.storyboard */,
+				5D7CF10A15E8DFBF00DE3B04 /* FCPendulum.h */,
+				5D7CF10B15E8DFBF00DE3B04 /* FCPendulum.m */,
 				5DE20ED915E708B40071D607 /* FCViewController.h */,
 				5DE20EDA15E708B40071D607 /* FCViewController.m */,
+				5D9E9BE015EA4C01002AE4F9 /* FCPreferenceController.h */,
+				5D9E9BE115EA4C01002AE4F9 /* FCPreferenceController.m */,
 				5DE20EE815E7486E0071D607 /* odeFunction.h */,
 				5DE20EE615E740440071D607 /* odeFunction.c */,
 				5DE20EE315E721280071D607 /* FCBarLayer.h */,
@@ -205,6 +215,8 @@
 				5DE20EDB15E708B40071D607 /* FCViewController.m in Sources */,
 				5DE20EE515E721280071D607 /* FCBarLayer.m in Sources */,
 				5DE20EE715E740440071D607 /* odeFunction.c in Sources */,
+				5D7CF10C15E8DFBF00DE3B04 /* FCPendulum.m in Sources */,
+				5D9E9BE215EA4C01002AE4F9 /* FCPreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

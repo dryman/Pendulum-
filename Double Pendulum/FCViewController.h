@@ -23,7 +23,6 @@
 - (IBAction)prefTouchUpInside:(id)sender;
 - (IBAction)prefTouchUpOutside:(id)sender;
 
-
--(void)animateLayers;
 -(void)setPrefButtonWithColor:(UIColor*)color forState:(UIControlState)state;
+
 @end

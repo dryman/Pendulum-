@@ -22,6 +22,14 @@
     }
     return self;
 }
+-(void) setLength:(CGFloat)length andWidth:(CGFloat)width {
+    _length = length;
+    _width = width;
+    self.bounds = CGRectMake(0., 0., width, _length+_width);
+    self.anchorPoint = CGPointMake(.5, _width/2./(_width+_length));
+    self.cornerRadius = _width/2.;
+    self.borderWidth = 2;
+}
 
 -(CGFloat) angle
 {
