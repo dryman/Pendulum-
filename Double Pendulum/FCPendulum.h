@@ -20,6 +20,9 @@
 @property (nonatomic,assign) float damp_coef;
 @property (nonatomic,copy) UIColor *color;
 
+- (id) initWithDelegateLayer:(CALayer*) layer;
+- (void) showPendulum;
+- (void) hidePendulum;
 - (void) update;
 - (void) setLength:(CGFloat)length andWidth:(CGFloat)width;
 

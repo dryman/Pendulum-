@@ -46,8 +46,6 @@ static void runge_kutta_4 (float dt, float phi)
 @interface FCViewController ()
 @property (nonatomic,strong) FCPendulum *pendulum_1;
 @property (nonatomic,strong) FCPendulum *pendulum_2;
-@property (nonatomic,strong) CADisplayLink *dl_1;
-@property (nonatomic,strong) CADisplayLink *dl_2;
 @end
 
 @implementation FCViewController
@@ -66,27 +64,19 @@ static void runge_kutta_4 (float dt, float phi)
     self.prefButton.layer.borderColor = highlightColor.CGColor;
     self.view.backgroundColor = [UIColor blackColor];
     
-    _pendulum_1 = [[FCPendulum alloc] init];
-    _pendulum_2 = [[FCPendulum alloc] init];
+    _pendulum_1 = [[FCPendulum alloc] initWithDelegateLayer:self.view.layer];
+    _pendulum_2 = [[FCPendulum alloc] initWithDelegateLayer:self.view.layer];
     
-    [_pendulum_1 setLength:70 andWidth:20];
-    [_pendulum_2 setLength:70 andWidth:20];
-    _pendulum_1.color = [UIColor greenColor];
-    _pendulum_2.color = [UIColor yellowColor];
+    [self.pendulum_1 setLength:70 andWidth:20];
+    [self.pendulum_2 setLength:70 andWidth:20];
+    self.pendulum_1.color = [UIColor greenColor];
+    self.pendulum_2.color = [UIColor yellowColor];
     
-    _pendulum_1.damp_coef = 0.05;
-    _pendulum_2.damp_coef = 0.05;
-    
-    [self.view.layer addSublayer:_pendulum_1.bar1];
-    [self.view.layer addSublayer:_pendulum_1.bar2];
-    [self.view.layer addSublayer:_pendulum_2.bar1];
-    [self.view.layer addSublayer:_pendulum_2.bar2];
-    
-    _dl_1 = [CADisplayLink displayLinkWithTarget:_pendulum_1 selector:@selector(update)];
-    _dl_2 = [CADisplayLink displayLinkWithTarget:_pendulum_2 selector:@selector(update)];
-    [_dl_1 addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    [_dl_2 addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    self.pendulum_1.damp_coef = 0.05;
+    self.pendulum_2.damp_coef = 0.05;
 
+    [self.pendulum_1 showPendulum];
+    [self.pendulum_2 showPendulum];
 }
 
 - (void)viewDidUnload

@@ -13,6 +13,8 @@
 const float dt = 0.05;
 
 @interface FCPendulum ()
+@property (nonatomic,strong,readonly) CADisplayLink *displayLink;
+@property (nonatomic,weak) CALayer *delegateLayer;
 @property (nonatomic,assign) float *current;
 @property (nonatomic,assign) float *k1;
 @property (nonatomic,assign) float *k2;
@@ -27,11 +29,13 @@ const float dt = 0.05;
 
 @implementation FCPendulum
 @synthesize sharedManager = __sharedManager;
+@synthesize displayLink = _displayLink;
 
-- (id) init
+- (id) initWithDelegateLayer:(CALayer *)layer
 {
     self = [super init];
     if (self) {
+        _delegateLayer = layer;
         _a_coef = 2.;
         _bar1 = [[FCBarLayer alloc] init];
         _bar1.position = CGPointMake(160, 180);
@@ -50,6 +54,7 @@ const float dt = 0.05;
 
 -(void)dealloc
 {
+    _delegateLayer = nil;
     free(_current);
     free(_k1);
     free(_k2);
@@ -99,6 +104,29 @@ const float dt = 0.05;
         __sharedManager = [(FCAppDelegate*)UIApplication.sharedApplication.delegate sharedManager];
     }
     return __sharedManager;
+}
+
+- (CADisplayLink*)displayLink
+{
+    if (_displayLink==nil) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
+        [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    }
+    return _displayLink;
+}
+
+- (void)showPendulum
+{
+    [self.delegateLayer addSublayer:self.bar1];
+    [self.delegateLayer addSublayer:self.bar2];
+    self.displayLink.paused = NO;
+}
+
+- (void)hidePendulum
+{
+    [self.bar1 removeFromSuperlayer];
+    [self.bar2 removeFromSuperlayer];
+    self.displayLink.paused = YES;
 }
 
 -(void)update {
