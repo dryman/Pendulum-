@@ -18,6 +18,7 @@
 @property (nonatomic,strong) CALayer *tailLayer;
 @property (nonatomic,strong) CADisplayLink *displayLink;
 @property (nonatomic,strong,readonly) CMMotionManager *sharedManager;
+@property (nonatomic,strong,readonly) NSArray *pendulums;
 
 - (IBAction)prefTouchDown:(id)sender;
 - (IBAction)prefTouchUpInside:(id)sender;

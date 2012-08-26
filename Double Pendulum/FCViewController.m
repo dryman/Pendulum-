@@ -15,37 +15,8 @@
 #define ACC_COEF (2.)
 #define DAMP_COEF (.01)
 
-static float current[4];
-static float k1[4];
-static float k2[4];
-static float k3[4];
-static float k4[4];
-static float a_eff_old;
-static float a_eff_new;
-static float phi_old;
-static float vx_new, vy_new;
-
-static void runge_kutta_4 (float dt, float phi)
-{
-    phi_old = phi;
-    a_eff_old = a_eff_new;
-    odeFunction(k1, current, current,    0.,                 a_eff_old,          phi_old, DAMP_COEF);
-    odeFunction(k2, current,      k1, dt/2., 0.5*(a_eff_old+a_eff_new), .5*(phi_old+phi), DAMP_COEF);
-    odeFunction(k3, current,      k2, dt/2., 0.5*(a_eff_old+a_eff_new), .5*(phi_old+phi), DAMP_COEF);
-    odeFunction(k4, current,      k3,    dt,                 a_eff_new,              phi, DAMP_COEF);
-
-    for (int i=0; i<4; ++i) {
-        current[i] = current[i] + dt/6.*(k1[i] + 2.*k2[i] + 2.*k3[i] + k4[i]);
-    }
-    vx_new = -current[2]*cosf(current[0]) - current[3] * cosf(current[1]);
-    vy_new = -current[2]*sinf(current[0]) - current[3] * sinf(current[1]);
-
-}
-
 
 @interface FCViewController ()
-@property (nonatomic,strong) FCPendulum *pendulum_1;
-@property (nonatomic,strong) FCPendulum *pendulum_2;
 @end
 
 @implementation FCViewController
@@ -56,6 +27,20 @@ static void runge_kutta_4 (float dt, float phi)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _pendulums =@[
+        [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
+        [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
+        [[FCPendulum alloc] initWithDelegateLayer:self.view.layer]];
+    NSArray *colors = @[[UIColor greenColor], [UIColor yellowColor], [UIColor cyanColor]];
+    
+    [self.pendulums enumerateObjectsUsingBlock:^(FCPendulum* pendulum, NSUInteger idx, BOOL *stop) {
+        [pendulum setLength:70 andWidth:20];
+        [pendulum setDamp_coef:0.01];
+        [pendulum setColor:[colors objectAtIndex:idx]];
+        [pendulum showPendulum];
+    }];
+    
     //self.navigationController.navigationBarHidden = YES;
     UIColor *highlightColor = [[UIColor greenColor] colorWithAlphaComponent:.6];
     [self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
@@ -64,19 +49,6 @@ static void runge_kutta_4 (float dt, float phi)
     self.prefButton.layer.borderColor = highlightColor.CGColor;
     self.view.backgroundColor = [UIColor blackColor];
     
-    _pendulum_1 = [[FCPendulum alloc] initWithDelegateLayer:self.view.layer];
-    _pendulum_2 = [[FCPendulum alloc] initWithDelegateLayer:self.view.layer];
-    
-    [self.pendulum_1 setLength:70 andWidth:20];
-    [self.pendulum_2 setLength:70 andWidth:20];
-    self.pendulum_1.color = [UIColor greenColor];
-    self.pendulum_2.color = [UIColor yellowColor];
-    
-    self.pendulum_1.damp_coef = 0.05;
-    self.pendulum_2.damp_coef = 0.05;
-
-    [self.pendulum_1 showPendulum];
-    [self.pendulum_2 showPendulum];
 }
 
 - (void)viewDidUnload
