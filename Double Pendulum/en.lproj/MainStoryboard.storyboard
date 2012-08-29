@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="B79-KY-onM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="kL0-P1-UeQ">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="syV-zc-zTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="B79-KY-onM" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="B27-ro-lGd">
-                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="7Zt-6g-K4S"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-85" y="-129"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="FCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iut-zj-Oer">
@@ -43,22 +26,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="prefTouchDown:" destination="2" eventType="touchDragInside" id="fQ4-um-4jy"/>
-                                    <action selector="prefTouchDown:" destination="2" eventType="touchDown" id="kXC-GQ-JXJ"/>
-                                    <action selector="prefTouchUpInside:" destination="2" eventType="touchUpInside" id="RVn-xd-jte"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="valueChanged" id="30B-e0-TKN"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchDragOutside" id="BIC-6S-jKZ"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchDragExit" id="KlA-Qn-nzG"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchUpOutside" id="Nue-HO-7SS"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="editingDidEndOnExit" id="geh-fo-mHj"/>
-                                    <action selector="prefTouchUpOutside:" destination="2" eventType="touchCancel" id="iyq-Lk-61s"/>
-                                    <segue destination="Mox-sZ-k3a" kind="push" id="mcj-v3-eDX"/>
+                                    <segue destination="Mox-sZ-k3a" kind="modal" modalTransitionStyle="partialCurl" id="mcj-v3-eDX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Xt-Fa-iQQ"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="prefButton" destination="Iut-zj-Oer" id="9nu-pZ-ne2"/>
                     </connections>
@@ -66,54 +41,63 @@
             </objects>
             <point key="canvasLocation" x="370" y="-117"/>
         </scene>
-        <!--View Controller-->
+        <!--Preference Controller-->
         <scene sceneID="wFD-fw-31c">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEF-JE-obK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Mox-sZ-k3a" sceneMemberID="viewController">
+                <viewController id="Mox-sZ-k3a" customClass="FCPreferenceController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y9R-aA-A94">
-                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="vNu-EZ-rLr">
-                                <rect key="frame" x="70" y="261" width="180" height="23"/>
+                                <rect key="frame" x="70" y="356" width="180" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.20608904408162967" green="0.7099567099567099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="0.090909090909090939" green="0.090909090909090939" blue="0.090909090909090939" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="0.024880631643127697" green="0.19047619047619047" blue="0.0072538663369981354" alpha="1" colorSpace="calibratedRGB"/>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="pg8-Jn-hH5">
-                                <rect key="frame" x="70" y="340" width="180" height="23"/>
+                                <rect key="frame" x="70" y="416" width="180" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ItF-vp-tdk">
-                                <rect key="frame" x="169" y="51" width="79" height="27"/>
+                                <rect key="frame" x="169" y="128" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchOneChanged:" destination="Mox-sZ-k3a" eventType="valueChanged" id="To5-9T-6nB"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="GUN-PB-HyY">
-                                <rect key="frame" x="169" y="114" width="79" height="27"/>
+                                <rect key="frame" x="169" y="199" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchTwoChanged:" destination="Mox-sZ-k3a" eventType="valueChanged" id="to9-5G-Dqc"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="IKY-Vz-GhK">
-                                <rect key="frame" x="169" y="182" width="79" height="27"/>
+                                <rect key="frame" x="169" y="274" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchThreeChanged:" destination="Mox-sZ-k3a" eventType="valueChanged" id="8iz-gw-fTZ"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bar1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ezT-ii-4f3">
-                                <rect key="frame" x="62" y="54" width="42" height="21"/>
+                                <rect key="frame" x="72" y="131" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bar2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vop-61-QuF">
-                                <rect key="frame" x="62" y="117" width="42" height="21"/>
+                                <rect key="frame" x="72" y="202" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bar3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qWi-nB-bJT">
-                                <rect key="frame" x="62" y="185" width="42" height="21"/>
+                                <rect key="frame" x="72" y="277" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -123,6 +107,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ove-HV-lFf"/>
+                    <connections>
+                        <outlet property="switchOne" destination="ItF-vp-tdk" id="DPc-4X-50t"/>
+                        <outlet property="switchThree" destination="IKY-Vz-GhK" id="FE8-Fk-Ivz"/>
+                        <outlet property="switchTwo" destination="GUN-PB-HyY" id="gcF-yl-9kv"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="808" y="-117"/>
@@ -132,12 +121,20 @@
         <image name="gear.png" width="52" height="52"/>
     </resources>
     <classes>
+        <class className="FCPreferenceController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCPreferenceController.h"/>
+            <relationships>
+                <relationship kind="action" name="switchOneChanged:"/>
+                <relationship kind="action" name="switchThreeChanged:"/>
+                <relationship kind="action" name="switchTwoChanged:"/>
+                <relationship kind="outlet" name="switchOne" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchThree" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchTwo" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
         <class className="FCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FCViewController.h"/>
             <relationships>
-                <relationship kind="action" name="prefTouchDown:"/>
-                <relationship kind="action" name="prefTouchUpInside:"/>
-                <relationship kind="action" name="prefTouchUpOutside:"/>
                 <relationship kind="outlet" name="prefButton" candidateClass="UIButton"/>
             </relationships>
         </class>

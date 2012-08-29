@@ -17,6 +17,8 @@
 @property (nonatomic,strong,readonly) FCBarLayer *bar2;
 @property (nonatomic,assign,readonly) CGFloat length;
 @property (nonatomic,assign,readonly) CGFloat width;
+@property (nonatomic,assign,getter = isVisible) BOOL visible;
+@property (nonatomic,assign,getter = isPaused) BOOL paused;
 @property (nonatomic,assign) float damp_coef;
 @property (nonatomic,copy) UIColor *color;
 

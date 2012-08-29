@@ -20,9 +20,6 @@
 @property (nonatomic,strong,readonly) CMMotionManager *sharedManager;
 @property (nonatomic,strong,readonly) NSArray *pendulums;
 
-- (IBAction)prefTouchDown:(id)sender;
-- (IBAction)prefTouchUpInside:(id)sender;
-- (IBAction)prefTouchUpOutside:(id)sender;
 
 -(void)setPrefButtonWithColor:(UIColor*)color forState:(UIControlState)state;
 

@@ -7,6 +7,7 @@
 //
 
 #import "FCViewController.h"
+#import "FCPreferenceController.h"
 #import "FCAppDelegate.h"
 #import "FCPendulum.h"
 #include "odeFunction.h"
@@ -27,19 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _pendulums =@[
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer]];
-    NSArray *colors = @[[UIColor greenColor], [UIColor yellowColor], [UIColor cyanColor]];
+    NSArray *colors = @[[UIColor cyanColor], [UIColor yellowColor], [UIColor greenColor]];
     
     [self.pendulums enumerateObjectsUsingBlock:^(FCPendulum* pendulum, NSUInteger idx, BOOL *stop) {
         [pendulum setLength:70 andWidth:20];
         [pendulum setDamp_coef:0.01];
         [pendulum setColor:[colors objectAtIndex:idx]];
-        [pendulum showPendulum];
     }];
+    [[self.pendulums objectAtIndex:0] setVisible:YES];
+    [[self.pendulums objectAtIndex:0] setPaused:NO];
     
     //self.navigationController.navigationBarHidden = YES;
     UIColor *highlightColor = [[UIColor greenColor] colorWithAlphaComponent:.6];
@@ -82,6 +84,14 @@
     [self.prefButton setImage:coloredImg forState:state];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    FCPreferenceController* preferenceController = (FCPreferenceController*)segue.destinationViewController;
+    preferenceController.delegateController = self;
+    [self.pendulums enumerateObjectsUsingBlock:^(FCPendulum* pendulum, NSUInteger idx, BOOL *stop) {
+        pendulum.paused = YES;
+    }];
+}
 
 -(CMMotionManager*)sharedManager {
     if (__sharedManager==nil) {
@@ -90,17 +100,5 @@
     return __sharedManager;
 }
 
-- (IBAction)prefTouchDown:(id)sender {
-    self.prefButton.layer.borderWidth = 3.;
-}
-
-- (IBAction)prefTouchUpInside:(id)sender {
-    self.prefButton.layer.borderWidth = 0;
-}
-
-- (IBAction)prefTouchUpOutside:(id)sender {
-    self.prefButton.layer.borderWidth = 0;
-
-}
 
 @end

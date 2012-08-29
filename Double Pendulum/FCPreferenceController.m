@@ -7,12 +7,17 @@
 //
 
 #import "FCPreferenceController.h"
+#import "FCViewController.h"
+#import "FCPendulum.h"
 
 @interface FCPreferenceController ()
 
 @end
 
 @implementation FCPreferenceController
+@synthesize switchOne;
+@synthesize switchTwo;
+@synthesize switchThree;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,11 +31,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.switchOne.on   = [[self.delegateController.pendulums objectAtIndex:0] isVisible];
+    self.switchTwo.on   = [[self.delegateController.pendulums objectAtIndex:1] isVisible];
+    self.switchThree.on = [[self.delegateController.pendulums objectAtIndex:2] isVisible];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.delegateController.pendulums enumerateObjectsUsingBlock:^(FCPendulum *pendulum, NSUInteger idx, BOOL *stop) {
+        if (pendulum.isVisible) {
+            pendulum.paused = NO;
+        }
+    }];
 }
 
 - (void)viewDidUnload
 {
+    [self setSwitchOne:nil];
+    [self setSwitchTwo:nil];
+    [self setSwitchThree:nil];
+    [self setDelegateController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -40,4 +61,18 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)switchOneChanged:(id)sender
+{
+    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:0] setVisible:[sender isOn]];
+}
+
+- (IBAction)switchTwoChanged:(id)sender
+{
+    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:1] setVisible:[sender isOn]];
+}
+
+- (IBAction)switchThreeChanged:(id)sender
+{
+    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:2] setVisible:[sender isOn]];
+}
 @end

@@ -30,6 +30,7 @@ const float dt = 0.05;
 @implementation FCPendulum
 @synthesize sharedManager = __sharedManager;
 @synthesize displayLink = _displayLink;
+@synthesize visible = _visible;
 
 - (id) initWithDelegateLayer:(CALayer *)layer
 {
@@ -38,9 +39,10 @@ const float dt = 0.05;
         _delegateLayer = layer;
         _a_coef = 2.;
         _bar1 = [[FCBarLayer alloc] init];
-        _bar1.position = CGPointMake(160, 180);
+        _bar1.position = CGPointMake(160, 240);
         _bar2 = [[FCBarLayer alloc] init];
         _current = (float*) malloc(4*sizeof(float));
+        _visible = NO;
         for (int i=0; i<4; ++i) {
             _current[i]=0;
         }
@@ -113,6 +115,35 @@ const float dt = 0.05;
         [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     }
     return _displayLink;
+}
+
+- (void)setVisible:(BOOL)visible
+{
+    if (_visible ^ visible) {
+        _visible = visible;
+        if (visible) {
+            [self.delegateLayer addSublayer:self.bar1];
+            [self.delegateLayer addSublayer:self.bar2];
+        } else {
+            [self.bar1 removeFromSuperlayer];
+            [self.bar2 removeFromSuperlayer];
+        }
+    }
+}
+
+- (BOOL)isVisible
+{
+    return _visible;
+}
+
+- (BOOL)isPaused
+{
+    return self.displayLink.paused;
+}
+
+- (void)setPaused:(BOOL)paused
+{
+    self.displayLink.paused = paused;
 }
 
 - (void)showPendulum
