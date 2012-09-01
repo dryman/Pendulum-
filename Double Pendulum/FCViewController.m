@@ -18,6 +18,7 @@
 
 
 @interface FCViewController ()
+@property (nonatomic,strong) CAEmitterLayer *sparkle;
 @end
 
 @implementation FCViewController
@@ -29,6 +30,47 @@
 {
     [super viewDidLoad];
 
+    id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
+    _sparkle = [CAEmitterLayer layer];
+    self.sparkle.emitterPosition = CGPointMake(160, 240);
+    self.sparkle.emitterShape = kCAEmitterLayerCircle;
+    self.sparkle.emitterSize = CGSizeMake(20, 10);
+    self.sparkle.emitterMode = kCAEmitterLayerOutline;
+    self.sparkle.renderMode = kCAEmitterLayerAdditive;
+    
+    CALayer *maskLayer = [CALayer layer];
+    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    maskLayer.borderColor = [[UIColor redColor] CGColor];
+    maskLayer.borderWidth = 242;
+    maskLayer.bounds = CGRectMake(0, 0, 500, 500);
+    maskLayer.position = CGPointMake(160, 240);
+    maskLayer.cornerRadius = 250;
+    
+    self.sparkle.mask = maskLayer;
+    
+    CAEmitterCell *flare = [CAEmitterCell emitterCell];
+	flare.contents = img;
+	flare.emissionLongitude = 0;
+    flare.emissionLatitude = 0;
+    flare.emissionRange = 2* M_PI;
+	flare.scale = 0.4;
+	flare.velocity = 150;
+	flare.birthRate = 200;
+	flare.lifetime = 3;
+	flare.yAcceleration = 350;
+	flare.alphaSpeed = -0.7;
+	flare.scaleSpeed = -0.1;
+	flare.scaleRange = 0.1;
+	flare.beginTime = 0.01;
+	flare.duration = 1;
+    self.sparkle.emitterCells = @[flare];
+    [self.view.layer addSublayer:self.sparkle];
+    
+
+    
+    //[self.view.layer addSublayer:maskLayer];
+    
+    
     _pendulums =@[
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
@@ -51,6 +93,10 @@
     self.prefButton.layer.borderColor = highlightColor.CGColor;
     self.view.backgroundColor = [UIColor blackColor];
     
+
+
+    
+
 }
 
 - (void)viewDidUnload
@@ -91,6 +137,7 @@
     [self.pendulums enumerateObjectsUsingBlock:^(FCPendulum* pendulum, NSUInteger idx, BOOL *stop) {
         pendulum.paused = YES;
     }];
+
 }
 
 -(CMMotionManager*)sharedManager {
