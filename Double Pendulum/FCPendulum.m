@@ -78,7 +78,7 @@ const float dt = 0.05;
         _emitterLayer = [CAEmitterLayer layer];
         _emitterLayer.emitterShape = kCAEmitterLayerCircle;
         _emitterLayer.emitterMode = kCAEmitterLayerOutline;
-        _emitterLayer.renderMode = kCAEmitterLayerAdditive;
+        //_emitterLayer.renderMode = kCAEmitterLayerAdditive;
     }
     return _emitterLayer;
 }
@@ -89,18 +89,19 @@ const float dt = 0.05;
         id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
         _emitterCell = [CAEmitterCell emitterCell];
         _emitterCell.contents = img;
-        _emitterCell.emissionLatitude = 0;
-        _emitterCell.emissionLongitude = 0;
+//        _emitterCell.emissionLatitude = 0;
+//        _emitterCell.emissionLongitude = 0;
         _emitterCell.emissionRange = M_PI_4;
-        _emitterCell.scale = 0.2;
-        _emitterCell.velocity = 150;
+        _emitterCell.scale = 0.5;
+        _emitterCell.scaleRange = .2;
+        _emitterCell.velocity = 0;
         _emitterCell.velocityRange = 50;
         _emitterCell.lifetime = 1;
-        _emitterCell.yAcceleration = 350;
+        //_emitterCell.yAcceleration = 350;
         _emitterCell.alphaSpeed = -0.7;
         _emitterCell.scaleSpeed = -0.2;
         _emitterCell.duration = 1;
-        _emitterCell.birthRate = 1000;
+        _emitterCell.birthRate = 10;
     }
     return _emitterCell;
 }
@@ -135,6 +136,10 @@ const float dt = 0.05;
     self.bar2.backgroundColor = backgroundColor;
     self.bar1.borderColor = borderColor;
     self.bar2.borderColor = borderColor;
+    
+    CGFloat hue, saturation, brightness, alpha;
+    [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    self.emitterCell.color = [[UIColor colorWithHue:hue saturation:saturation-0.6 brightness:brightness alpha:alpha] CGColor];
     [CATransaction commit];
 }
 
@@ -219,7 +224,9 @@ const float dt = 0.05;
     self.bar1.angle = self.current[0];
     self.bar2.angle = self.current[1];
     self.bar2.position = self.bar1.tailPosition;
-    self.emitterLayer.position = self.bar1.tailPosition;
+    self.emitterLayer.emitterPosition = self.bar1.tailPosition;
+    self.emitterCell.birthRate = fabsf(_current[2]-_current[3])*10;
+    self.emitterCell.velocity = fabsf(self.bar1.length*_current[2]);
     [CATransaction commit];
 }
 
