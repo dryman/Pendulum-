@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
     
-    
     _pendulums =@[
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
@@ -39,13 +38,13 @@
     
     [self.pendulums enumerateObjectsUsingBlock:^(FCPendulum* pendulum, NSUInteger idx, BOOL *stop) {
         [pendulum setLength:70 andWidth:20];
-        [pendulum setDamp_coef:0.01];
+        [pendulum setDampCoef:0.05];
         [pendulum setColor:[colors objectAtIndex:idx]];
     }];
     [[self.pendulums objectAtIndex:2] setVisible:YES];
     [[self.pendulums objectAtIndex:2] setPaused:NO];
     
-    UIColor *highlightColor = [[UIColor greenColor] colorWithAlphaComponent:.6];
+    UIColor *highlightColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
     [self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
     [self setPrefButtonWithColor:highlightColor forState:UIControlStateHighlighted];
     self.prefButton.layer.cornerRadius = 10.;
@@ -58,7 +57,6 @@
 {
     [self setPrefButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 

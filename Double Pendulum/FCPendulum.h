@@ -17,7 +17,8 @@
 @property (nonatomic,assign,readonly) CGFloat width;
 @property (nonatomic,assign,getter = isVisible) BOOL visible;
 @property (nonatomic,assign,getter = isPaused) BOOL paused;
-@property (nonatomic,assign) float damp_coef;
+@property (nonatomic,assign) float dampCoef;
+@property (nonatomic,assign) float accCoef;
 @property (nonatomic,copy) UIColor *color;
 
 - (id) initWithDelegateLayer:(CALayer*) layer;

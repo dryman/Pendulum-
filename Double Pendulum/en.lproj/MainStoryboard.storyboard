@@ -50,19 +50,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="vNu-EZ-rLr">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="30" maxValue="110" id="vNu-EZ-rLr">
                                 <rect key="frame" x="57" y="361" width="206" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="thumbTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="lengthSliderMoved:" destination="Mox-sZ-k3a" eventType="valueChanged" id="k06-oM-t6C"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="um1-LO-Ky0">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.050000000000000003" minValue="0.0" maxValue="0.10000000000000001" id="um1-LO-Ky0">
                                 <rect key="frame" x="57" y="426" width="206" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="thumbTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="dampingSliderMoved:" destination="Mox-sZ-k3a" eventType="valueChanged" id="ArS-mH-0Zb"/>
+                                </connections>
                             </slider>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ItF-vp-tdk">
                                 <rect key="frame" x="186" y="126" width="79" height="27"/>
@@ -128,6 +134,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ove-HV-lFf"/>
                     <connections>
+                        <outlet property="dampingSlider" destination="um1-LO-Ky0" id="HxG-p4-gdP"/>
+                        <outlet property="lengthSlider" destination="vNu-EZ-rLr" id="MZH-xL-uUv"/>
                         <outlet property="switchOne" destination="ItF-vp-tdk" id="DPc-4X-50t"/>
                         <outlet property="switchThree" destination="IKY-Vz-GhK" id="FE8-Fk-Ivz"/>
                         <outlet property="switchTwo" destination="GUN-PB-HyY" id="gcF-yl-9kv"/>
@@ -140,25 +148,6 @@
     <resources>
         <image name="gear.png" width="52" height="52"/>
     </resources>
-    <classes>
-        <class className="FCPreferenceController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCPreferenceController.h"/>
-            <relationships>
-                <relationship kind="action" name="switchOneChanged:"/>
-                <relationship kind="action" name="switchThreeChanged:"/>
-                <relationship kind="action" name="switchTwoChanged:"/>
-                <relationship kind="outlet" name="switchOne" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="switchThree" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="switchTwo" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="FCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FCViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="prefButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
