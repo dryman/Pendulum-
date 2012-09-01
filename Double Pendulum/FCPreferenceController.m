@@ -19,22 +19,12 @@
 @synthesize switchTwo;
 @synthesize switchThree;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.switchOne.on   = [[self.delegateController.pendulums objectAtIndex:0] isVisible];
+    self.switchOne.on   = [[self.delegateController.pendulums objectAtIndex:2] isVisible];
     self.switchTwo.on   = [[self.delegateController.pendulums objectAtIndex:1] isVisible];
-    self.switchThree.on = [[self.delegateController.pendulums objectAtIndex:2] isVisible];
-	// Do any additional setup after loading the view.
+    self.switchThree.on = [[self.delegateController.pendulums objectAtIndex:0] isVisible];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -63,7 +53,7 @@
 
 - (IBAction)switchOneChanged:(id)sender
 {
-    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:0] setVisible:[sender isOn]];
+    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:2] setVisible:[sender isOn]];
 }
 
 - (IBAction)switchTwoChanged:(id)sender
@@ -73,6 +63,7 @@
 
 - (IBAction)switchThreeChanged:(id)sender
 {
-    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:2] setVisible:[sender isOn]];
+    [(FCPendulum*)[self.delegateController.pendulums objectAtIndex:0] setVisible:[sender isOn]];
 }
+
 @end
