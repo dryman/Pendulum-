@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
 
+    /*
     id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
     _sparkle = [CAEmitterLayer layer];
     self.sparkle.emitterPosition = CGPointMake(160, 240);
@@ -46,15 +47,16 @@
     maskLayer.position = CGPointMake(160, 240);
     maskLayer.cornerRadius = 250;
     
-    self.sparkle.mask = maskLayer;
+    //self.sparkle.mask = maskLayer;
     
     CAEmitterCell *flare = [CAEmitterCell emitterCell];
 	flare.contents = img;
 	flare.emissionLongitude = 0;
     flare.emissionLatitude = 0;
-    flare.emissionRange = 2* M_PI;
+    flare.emissionRange = M_PI_4;
 	flare.scale = 0.4;
 	flare.velocity = 150;
+    flare.velocityRange = 50;
 	flare.birthRate = 200;
 	flare.lifetime = 3;
 	flare.yAcceleration = 350;
@@ -65,7 +67,7 @@
 	flare.duration = 1;
     self.sparkle.emitterCells = @[flare];
     [self.view.layer addSublayer:self.sparkle];
-    
+    */
 
     
     //[self.view.layer addSublayer:maskLayer];

@@ -13,8 +13,6 @@
 
 @interface FCPendulum : NSObject
 @property (nonatomic,strong,readonly) CMMotionManager *sharedManager;
-@property (nonatomic,strong,readonly) FCBarLayer *bar1;
-@property (nonatomic,strong,readonly) FCBarLayer *bar2;
 @property (nonatomic,assign,readonly) CGFloat length;
 @property (nonatomic,assign,readonly) CGFloat width;
 @property (nonatomic,assign,getter = isVisible) BOOL visible;
@@ -23,8 +21,6 @@
 @property (nonatomic,copy) UIColor *color;
 
 - (id) initWithDelegateLayer:(CALayer*) layer;
-- (void) showPendulum;
-- (void) hidePendulum;
 - (void) update;
 - (void) setLength:(CGFloat)length andWidth:(CGFloat)width;
 

@@ -13,6 +13,10 @@
 const float dt = 0.05;
 
 @interface FCPendulum ()
+@property (nonatomic,strong,readonly) FCBarLayer *bar1;
+@property (nonatomic,strong,readonly) FCBarLayer *bar2;
+@property (nonatomic,strong) CAEmitterLayer *emitterLayer;
+@property (nonatomic,strong) CAEmitterCell *emitterCell;
 @property (nonatomic,strong,readonly) CADisplayLink *displayLink;
 @property (nonatomic,weak) CALayer *delegateLayer;
 @property (nonatomic,assign) float *current;
@@ -38,11 +42,15 @@ const float dt = 0.05;
     if (self) {
         _delegateLayer = layer;
         _a_coef = 2.;
+        _visible = NO;
         _bar1 = [[FCBarLayer alloc] init];
         _bar1.position = CGPointMake(160, 240);
         _bar2 = [[FCBarLayer alloc] init];
+        
+        self.emitterLayer.emitterCells = @[self.emitterCell];
+        
+        // c malloc
         _current = (float*) malloc(4*sizeof(float));
-        _visible = NO;
         for (int i=0; i<4; ++i) {
             _current[i]=0;
         }
@@ -64,12 +72,46 @@ const float dt = 0.05;
     free(_k4);
 }
 
+-(CAEmitterLayer*) emitterLayer
+{
+    if (_emitterLayer == nil) {
+        _emitterLayer = [CAEmitterLayer layer];
+        _emitterLayer.emitterShape = kCAEmitterLayerCircle;
+        _emitterLayer.emitterMode = kCAEmitterLayerOutline;
+        _emitterLayer.renderMode = kCAEmitterLayerAdditive;
+    }
+    return _emitterLayer;
+}
+
+-(CAEmitterCell*) emitterCell
+{
+    if (_emitterCell == nil) {
+        id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
+        _emitterCell = [CAEmitterCell emitterCell];
+        _emitterCell.contents = img;
+        _emitterCell.emissionLatitude = 0;
+        _emitterCell.emissionLongitude = 0;
+        _emitterCell.emissionRange = M_PI_4;
+        _emitterCell.scale = 0.2;
+        _emitterCell.velocity = 150;
+        _emitterCell.velocityRange = 50;
+        _emitterCell.lifetime = 1;
+        _emitterCell.yAcceleration = 350;
+        _emitterCell.alphaSpeed = -0.7;
+        _emitterCell.scaleSpeed = -0.2;
+        _emitterCell.duration = 1;
+        _emitterCell.birthRate = 1000;
+    }
+    return _emitterCell;
+}
+
 -(void)setLength:(CGFloat)length andWidth:(CGFloat)width
 {
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-    [_bar1 setLength:length andWidth:width];
-    [_bar2 setLength:length andWidth:width];
+    [self.bar1 setLength:length andWidth:width];
+    [self.bar2 setLength:length andWidth:width];
+    [self.emitterLayer setEmitterSize: CGSizeMake(width, 0)];
     [CATransaction commit];
 }
 
@@ -89,10 +131,10 @@ const float dt = 0.05;
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     CGColorRef backgroundColor = [color colorWithAlphaComponent:.2].CGColor;
     CGColorRef borderColor = [color colorWithAlphaComponent:.7].CGColor;
-    _bar1.backgroundColor = backgroundColor;
-    _bar2.backgroundColor = backgroundColor;
-    _bar1.borderColor = borderColor;
-    _bar2.borderColor = borderColor;
+    self.bar1.backgroundColor = backgroundColor;
+    self.bar2.backgroundColor = backgroundColor;
+    self.bar1.borderColor = borderColor;
+    self.bar2.borderColor = borderColor;
     [CATransaction commit];
 }
 
@@ -122,9 +164,11 @@ const float dt = 0.05;
     if (_visible ^ visible) {
         _visible = visible;
         if (visible) {
+            [self.delegateLayer addSublayer:self.emitterLayer];
             [self.delegateLayer addSublayer:self.bar1];
             [self.delegateLayer addSublayer:self.bar2];
         } else {
+            [self.emitterLayer removeFromSuperlayer];
             [self.bar1 removeFromSuperlayer];
             [self.bar2 removeFromSuperlayer];
         }
@@ -144,20 +188,6 @@ const float dt = 0.05;
 - (void)setPaused:(BOOL)paused
 {
     self.displayLink.paused = paused;
-}
-
-- (void)showPendulum
-{
-    [self.delegateLayer addSublayer:self.bar1];
-    [self.delegateLayer addSublayer:self.bar2];
-    self.displayLink.paused = NO;
-}
-
-- (void)hidePendulum
-{
-    [self.bar1 removeFromSuperlayer];
-    [self.bar2 removeFromSuperlayer];
-    self.displayLink.paused = YES;
 }
 
 -(void)update {
@@ -189,6 +219,7 @@ const float dt = 0.05;
     self.bar1.angle = self.current[0];
     self.bar2.angle = self.current[1];
     self.bar2.position = self.bar1.tailPosition;
+    self.emitterLayer.position = self.bar1.tailPosition;
     [CATransaction commit];
 }
 
