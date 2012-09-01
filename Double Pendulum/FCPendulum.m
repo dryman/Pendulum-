@@ -65,6 +65,7 @@ const float dt = 0.05;
 -(void)dealloc
 {
     _delegateLayer = nil;
+    [_displayLink invalidate];
     free(_current);
     free(_k1);
     free(_k2);
@@ -72,38 +73,46 @@ const float dt = 0.05;
     free(_k4);
 }
 
--(CAEmitterLayer*) emitterLayer
-{
-    if (_emitterLayer == nil) {
-        _emitterLayer = [CAEmitterLayer layer];
-        _emitterLayer.emitterShape = kCAEmitterLayerCircle;
-        _emitterLayer.emitterMode = kCAEmitterLayerOutline;
-        //_emitterLayer.renderMode = kCAEmitterLayerAdditive;
-    }
-    return _emitterLayer;
-}
 
--(CAEmitterCell*) emitterCell
-{
-    if (_emitterCell == nil) {
-        id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
-        _emitterCell = [CAEmitterCell emitterCell];
-        _emitterCell.contents = img;
-//        _emitterCell.emissionLatitude = 0;
-//        _emitterCell.emissionLongitude = 0;
-        _emitterCell.emissionRange = M_PI_4;
-        _emitterCell.scale = 0.5;
-        _emitterCell.scaleRange = .2;
-        _emitterCell.velocity = 0;
-        _emitterCell.velocityRange = 50;
-        _emitterCell.lifetime = 1;
-        //_emitterCell.yAcceleration = 350;
-        _emitterCell.alphaSpeed = -0.7;
-        _emitterCell.scaleSpeed = -0.2;
-        _emitterCell.duration = 1;
-        _emitterCell.birthRate = 10;
+-(void)update {
+    float x_acc, y_acc, phi, a_eff;
+    if (self.sharedManager.accelerometerActive) {
+        CMAccelerometerData *accData = self.sharedManager.accelerometerData;
+        x_acc = accData.acceleration.x;
+        y_acc = accData.acceleration.y;
+    } else {
+        x_acc = 0;
+        y_acc = 1.0;
     }
-    return _emitterCell;
+    
+    a_eff = _a_coef * sqrtf(x_acc*x_acc + y_acc*y_acc);
+    phi = atan2f(-x_acc, -y_acc);
+    
+    
+    /* runge kuta 4th order */
+    odeFunction(_k1, _current, _current,   0., a_eff, phi, _damp_coef);
+    odeFunction(_k2, _current,      _k1, dt/2, a_eff, phi, _damp_coef);
+    odeFunction(_k3, _current,      _k2, dt/2, a_eff, phi, _damp_coef);
+    odeFunction(_k4, _current,      _k3,   dt, a_eff, phi, _damp_coef);
+    for (int i=0; i<4; ++i)
+        _current[i] = _current[i] + dt*(_k1[i] + 2*_k2[i] +2*_k3[i] +_k4[i])/6.;
+    
+    _vx = -_current[2]*cosf(_current[0]) - _current[3]*cosf(_current[1]);
+    _vy = -_current[2]*sinf(_current[0]) - _current[3]*sinf(_current[1]);
+    
+    _a_eff_old = a_eff;
+    _phi_old = phi;
+    
+    // should set this in main queue?
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    self.bar1.angle = self.current[0];
+    self.bar2.angle = self.current[1];
+    self.bar2.position = self.bar1.tailPosition;
+    self.emitterLayer.emitterPosition = self.bar1.tailPosition;
+    self.emitterCell.birthRate = fabsf(_current[2]-_current[3])*10;
+    self.emitterCell.velocity = fabsf(self.bar1.length*_current[2]);
+    [CATransaction commit];
 }
 
 -(void)setLength:(CGFloat)length andWidth:(CGFloat)width
@@ -124,6 +133,37 @@ const float dt = 0.05;
 -(CGFloat)width
 {
     return [_bar1 width];
+}
+
+-(CAEmitterLayer*) emitterLayer
+{
+    if (_emitterLayer == nil) {
+        _emitterLayer = [CAEmitterLayer layer];
+        _emitterLayer.emitterShape = kCAEmitterLayerCircle;
+        _emitterLayer.emitterMode = kCAEmitterLayerOutline;
+        //_emitterLayer.renderMode = kCAEmitterLayerAdditive;
+    }
+    return _emitterLayer;
+}
+
+-(CAEmitterCell*) emitterCell
+{
+    if (_emitterCell == nil) {
+        id img = (id) [[UIImage imageNamed:@"tspark.png"] CGImage];
+        _emitterCell = [CAEmitterCell emitterCell];
+        _emitterCell.contents = img;
+        _emitterCell.emissionRange = M_PI_4/2;
+        _emitterCell.scale = 0.5;
+        _emitterCell.scaleRange = .2;
+        _emitterCell.velocity = 0;
+        _emitterCell.velocityRange = 50;
+        _emitterCell.lifetime = 1;
+        _emitterCell.alphaSpeed = -0.7;
+        _emitterCell.scaleSpeed = -0.2;
+        _emitterCell.duration = 1;
+        _emitterCell.birthRate = 10;
+    }
+    return _emitterCell;
 }
 
 -(void)setColor:(UIColor *)color
@@ -193,41 +233,22 @@ const float dt = 0.05;
 - (void)setPaused:(BOOL)paused
 {
     self.displayLink.paused = paused;
+    /* 
+     * not quite sure if below would trigger implicit animation...
+     */
+    if (paused) {
+        CFTimeInterval pausedTime = [self.emitterLayer convertTime:CACurrentMediaTime() fromLayer:nil];
+        self.emitterLayer.speed = 0.0;
+        self.emitterLayer.timeOffset = pausedTime;
+    } else {
+        CFTimeInterval pausedTime = self.emitterLayer.timeOffset;
+        CFTimeInterval timeSincePause = [self.emitterLayer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+        self.emitterLayer.speed = 1.0;
+        self.emitterLayer.timeOffset = 0.0;
+        self.emitterLayer.beginTime = 0.0;
+        self.emitterLayer.beginTime = timeSincePause;
+    }
 }
 
--(void)update {
-    float x_acc, y_acc, phi, a_eff;
-    CMAccelerometerData *accData = self.sharedManager.accelerometerData;
-    x_acc = accData.acceleration.x;
-    y_acc = accData.acceleration.y;
-    a_eff = _a_coef * sqrtf(x_acc*x_acc + y_acc*y_acc);
-    phi = atan2f(-x_acc, -y_acc);
-    
-    
-    /* runge kuta 4th order */
-    odeFunction(_k1, _current, _current,   0., a_eff, phi, _damp_coef);
-    odeFunction(_k2, _current,      _k1, dt/2, a_eff, phi, _damp_coef);
-    odeFunction(_k3, _current,      _k2, dt/2, a_eff, phi, _damp_coef);
-    odeFunction(_k4, _current,      _k3,   dt, a_eff, phi, _damp_coef);
-    for (int i=0; i<4; ++i)
-        _current[i] = _current[i] + dt*(_k1[i] + 2*_k2[i] +2*_k3[i] +_k4[i])/6.;
-    
-    _vx = -_current[2]*cosf(_current[0]) - _current[3]*cosf(_current[1]);
-    _vy = -_current[2]*sinf(_current[0]) - _current[3]*sinf(_current[1]);
-    
-    _a_eff_old = a_eff;
-    _phi_old = phi;
-    
-    // should set this in main queue?
-    [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-    self.bar1.angle = self.current[0];
-    self.bar2.angle = self.current[1];
-    self.bar2.position = self.bar1.tailPosition;
-    self.emitterLayer.emitterPosition = self.bar1.tailPosition;
-    self.emitterCell.birthRate = fabsf(_current[2]-_current[3])*10;
-    self.emitterCell.velocity = fabsf(self.bar1.length*_current[2]);
-    [CATransaction commit];
-}
 
 @end

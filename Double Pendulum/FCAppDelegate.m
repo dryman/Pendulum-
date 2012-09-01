@@ -11,7 +11,13 @@
 @implementation FCAppDelegate
 @synthesize sharedManager = __sharedManager;
 
-
+-(CMMotionManager*)sharedManager
+{
+    if (__sharedManager == nil) {
+        __sharedManager = [[CMMotionManager alloc] init];
+    }
+    return __sharedManager;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,11 +26,10 @@
     //[application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 
-    __sharedManager = [[CMMotionManager alloc] init];
     if ([self.sharedManager isAccelerometerAvailable]) {
         self.sharedManager.accelerometerUpdateInterval = 1.0/60.0;
         [self.sharedManager startAccelerometerUpdates];
-    }
+    } // should take care if not available
     return YES;
 }
 							
