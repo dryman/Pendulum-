@@ -114,7 +114,7 @@ const float dt = 0.05;
 
 -(void)setLength:(CGFloat)length andWidth:(CGFloat)width
 {
-    [self setAccCoef: length/40.];
+    [self setAccCoef: 80./length];
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     [self.bar1 setLength:length andWidth:width];
