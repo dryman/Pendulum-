@@ -19,8 +19,4 @@
 @property (nonatomic,strong) CADisplayLink *displayLink;
 @property (nonatomic,strong,readonly) CMMotionManager *sharedManager;
 @property (nonatomic,strong,readonly) NSArray *pendulums;
-
-
--(void)setPrefButtonWithColor:(UIColor*)color forState:(UIControlState)state;
-
 @end

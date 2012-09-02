@@ -50,14 +50,6 @@
     UIImage *gear_selected = [UIImage imageNamed:@"gear_highlighted.png"];
     [self.prefButton setImage:gear_normal forState:UIControlStateNormal];
     [self.prefButton setImage:gear_selected forState:UIControlStateHighlighted];
-
-    
-    //UIColor *highlightColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
-    //[self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
-    //[self setPrefButtonWithColor:highlightColor forState:UIControlStateHighlighted];
-    //self.prefButton.layer.cornerRadius = 10.;
-    //self.prefButton.layer.borderColor = highlightColor.CGColor;
-
 }
 
 - (void)viewDidUnload
@@ -70,24 +62,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
--(void)setPrefButtonWithColor:(UIColor*)color forState:(UIControlState)state
-{
-    UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
-    CGRect rect = CGRectMake(0, 0, gearImage.size.width, gearImage.size.height);
-    CGFloat scale = [[UIScreen mainScreen] scale];
-    
-    UIGraphicsBeginImageContextWithOptions(gearImage.size, NO, scale);
-    CGContextRef context = UIGraphicsGetCurrentContext(); /* image context */
-    [color setFill];
-    CGContextClipToMask(context, rect, gearImage.CGImage);
-    CGContextAddRect(context, rect);
-    CGContextDrawPath(context, kCGPathFill);
-    UIImage *coloredImg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.prefButton setImage:coloredImg forState:state];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
