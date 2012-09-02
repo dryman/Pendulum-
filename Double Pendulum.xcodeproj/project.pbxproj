@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5D369B7B15F309050052F7BD /* gear_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7915F309050052F7BD /* gear_normal.png */; };
 		5D369B7C15F309050052F7BD /* gear_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7A15F309050052F7BD /* gear_normal@2x.png */; };
+		5D369B7F15F30CC60052F7BD /* gear_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7D15F30CC60052F7BD /* gear_selected.png */; };
+		5D369B8015F30CC60052F7BD /* gear_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7E15F30CC60052F7BD /* gear_selected@2x.png */; };
+		5D369B8315F30F3A0052F7BD /* gear_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B8115F30F3A0052F7BD /* gear_highlighted.png */; };
+		5D369B8415F30F3A0052F7BD /* gear_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B8215F30F3A0052F7BD /* gear_highlighted@2x.png */; };
 		5D7CF10115E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */; };
 		5D7CF10315E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */; };
 		5D7CF10515E8941700DE3B04 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CF10415E8941700DE3B04 /* gear.png */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		5D369B7915F309050052F7BD /* gear_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear_normal.png; path = ../photoshop/gear_normal.png; sourceTree = "<group>"; };
 		5D369B7A15F309050052F7BD /* gear_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear_normal@2x.png"; path = "../photoshop/gear_normal@2x.png"; sourceTree = "<group>"; };
+		5D369B7D15F30CC60052F7BD /* gear_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear_selected.png; path = photoshop/gear_selected.png; sourceTree = SOURCE_ROOT; };
+		5D369B7E15F30CC60052F7BD /* gear_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear_selected@2x.png"; path = "photoshop/gear_selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		5D369B8115F30F3A0052F7BD /* gear_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear_highlighted.png; path = photoshop/gear_highlighted.png; sourceTree = SOURCE_ROOT; };
+		5D369B8215F30F3A0052F7BD /* gear_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear_highlighted@2x.png"; path = "photoshop/gear_highlighted@2x.png"; sourceTree = SOURCE_ROOT; };
 		5D7CF10015E7B9D000DE3B04 /* iconmonstr-gear-10-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-gear-10-icon.png"; sourceTree = "<group>"; };
 		5D7CF10215E7BA8000DE3B04 /* iconmonstr-stop-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-stop-2-icon.png"; sourceTree = "<group>"; };
 		5D7CF10415E8941700DE3B04 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 		5DE20ECB15E708B40071D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D369B8115F30F3A0052F7BD /* gear_highlighted.png */,
+				5D369B8215F30F3A0052F7BD /* gear_highlighted@2x.png */,
+				5D369B7D15F30CC60052F7BD /* gear_selected.png */,
+				5D369B7E15F30CC60052F7BD /* gear_selected@2x.png */,
 				5D369B7915F309050052F7BD /* gear_normal.png */,
 				5D369B7A15F309050052F7BD /* gear_normal@2x.png */,
 				5DDE821815EDEE120009A78D /* tspark.png */,
@@ -212,6 +224,10 @@
 				5DDE821915EDEE120009A78D /* tspark.png in Resources */,
 				5D369B7B15F309050052F7BD /* gear_normal.png in Resources */,
 				5D369B7C15F309050052F7BD /* gear_normal@2x.png in Resources */,
+				5D369B7F15F30CC60052F7BD /* gear_selected.png in Resources */,
+				5D369B8015F30CC60052F7BD /* gear_selected@2x.png in Resources */,
+				5D369B8315F30F3A0052F7BD /* gear_highlighted.png in Resources */,
+				5D369B8415F30F3A0052F7BD /* gear_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

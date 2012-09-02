@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
 
     _pendulums =@[
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
@@ -47,6 +47,9 @@
     
     
     UIImage *gear_normal = [UIImage imageNamed:@"gear_normal.png"];
+    UIImage *gear_selected = [UIImage imageNamed:@"gear_highlighted.png"];
+    [self.prefButton setImage:gear_normal forState:UIControlStateNormal];
+    [self.prefButton setImage:gear_selected forState:UIControlStateHighlighted];
 
     
     //UIColor *highlightColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
