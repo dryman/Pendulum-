@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    //self.view.backgroundColor = [UIColor blackColor];
+
     _pendulums =@[
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
         [[FCPendulum alloc] initWithDelegateLayer:self.view.layer],
@@ -44,12 +45,15 @@
     [[self.pendulums objectAtIndex:2] setVisible:YES];
     [[self.pendulums objectAtIndex:2] setPaused:NO];
     
-    UIColor *highlightColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
-    [self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
-    [self setPrefButtonWithColor:highlightColor forState:UIControlStateHighlighted];
-    self.prefButton.layer.cornerRadius = 10.;
-    self.prefButton.layer.borderColor = highlightColor.CGColor;
-    self.view.backgroundColor = [UIColor blackColor];
+    
+    UIImage *gear_normal = [UIImage imageNamed:@"gear_normal.png"];
+
+    
+    //UIColor *highlightColor = [[UIColor whiteColor] colorWithAlphaComponent:.7];
+    //[self setPrefButtonWithColor:[UIColor colorWithWhite:1. alpha:.5] forState:UIControlStateNormal];
+    //[self setPrefButtonWithColor:highlightColor forState:UIControlStateHighlighted];
+    //self.prefButton.layer.cornerRadius = 10.;
+    //self.prefButton.layer.borderColor = highlightColor.CGColor;
 
 }
 

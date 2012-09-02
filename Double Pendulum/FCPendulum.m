@@ -81,7 +81,7 @@ const float dt = 0.05;
         y_acc = accData.acceleration.y;
     } else {
         x_acc = 0;
-        y_acc = 1.0;
+        y_acc = -1.0;
     }
     
     a_eff = _accCoef * sqrtf(x_acc*x_acc + y_acc*y_acc);
