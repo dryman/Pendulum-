@@ -102,13 +102,13 @@ const float dt = 0.05;
     
 
     [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    [CATransaction setDisableActions:YES];
     self.bar1.angle = self.current[0];
     self.bar2.angle = self.current[1];
     self.bar2.position = self.bar1.tailPosition;
     self.emitterLayer.emitterPosition = self.bar1.tailPosition;
-    self.emitterCell.birthRate = floorf(fabsf(_current[2]-_current[3])*10);
-    self.emitterCell.velocity = fabsf(self.bar1.length*_current[2]);
+    self.emitterCell.birthRate = floorf(fabsf(self.current[2]-self.current[3])*10);
+    self.emitterCell.velocity = fabsf(self.bar1.length*self.current[2]);
     [CATransaction commit];
 }
 
