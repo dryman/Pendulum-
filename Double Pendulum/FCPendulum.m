@@ -167,7 +167,7 @@ const float dt = 0.05;
 -(void)setColor:(UIColor *)color
 {
     [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    [CATransaction setDisableActions:YES];
     CGColorRef backgroundColor = [color colorWithAlphaComponent:.2].CGColor;
     CGColorRef borderColor = [color colorWithAlphaComponent:.7].CGColor;
     self.bar1.backgroundColor = backgroundColor;
