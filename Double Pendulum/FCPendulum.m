@@ -44,8 +44,10 @@ const float dt = 0.05;
         self.emitterLayer.emitterCells = @[self.emitterCell];
         
         /* hard coded, should become more flexible if I want to write iPad version */
-        self.bar1.position = CGPointMake(160, 240);
-        self.bar2.position = CGPointMake(160, 310);
+        CGFloat x = [UIScreen mainScreen].bounds.size.width/2.f;
+        CGFloat y = [UIScreen mainScreen].bounds.size.height/2.f;
+        self.bar1.position = CGPointMake(x, y);
+        self.bar2.position = CGPointMake(x, y+70);
         self.emitterLayer.emitterPosition = CGPointMake(160, 310);  /* avoid init ghost flash */
 
         /* c malloc */

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0A55DD160BF7DF00790C59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A55DC160BF7DF00790C59 /* Default-568h@2x.png */; };
 		5D369B7B15F309050052F7BD /* gear_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7915F309050052F7BD /* gear_normal.png */; };
 		5D369B7C15F309050052F7BD /* gear_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B7A15F309050052F7BD /* gear_normal@2x.png */; };
 		5D369B8315F30F3A0052F7BD /* gear_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D369B8115F30F3A0052F7BD /* gear_highlighted.png */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0A55DC160BF7DF00790C59 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		5D369B7915F309050052F7BD /* gear_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear_normal.png; path = ../photoshop/gear_normal.png; sourceTree = "<group>"; };
 		5D369B7A15F309050052F7BD /* gear_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear_normal@2x.png"; path = "../photoshop/gear_normal@2x.png"; sourceTree = "<group>"; };
 		5D369B8115F30F3A0052F7BD /* gear_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear_highlighted.png; path = photoshop/gear_highlighted.png; sourceTree = SOURCE_ROOT; };
@@ -142,6 +144,7 @@
 		5DE20ECB15E708B40071D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D0A55DC160BF7DF00790C59 /* Default-568h@2x.png */,
 				5D369B9615F33E3C0052F7BD /* Icon-Small.png */,
 				5D369B9715F33E3C0052F7BD /* Icon-Small@2x.png */,
 				5D369B9815F33E3C0052F7BD /* iTunesArtwork */,
@@ -224,6 +227,7 @@
 				5D369B9915F33E3C0052F7BD /* Icon-Small.png in Resources */,
 				5D369B9A15F33E3C0052F7BD /* Icon-Small@2x.png in Resources */,
 				5D369B9B15F33E3C0052F7BD /* iTunesArtwork in Resources */,
+				5D0A55DD160BF7DF00790C59 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
